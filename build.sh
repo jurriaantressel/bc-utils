@@ -39,10 +39,13 @@ mkdir -p "$DEST_DIR"
 echo "Generating env files"
 
 # Directory containing source environment files
-ENV_DIR="./env_files"
+#ENV_DIR="./env_files"
+CONFIG_PROJECT_NAME="pysystemtrade_config"
+CONFIG_PROJECT_DIR="../$CONFIG_PROJECT_NAME"
+ENV_DIR="$CONFIG_PROJECT_DIR/build/bc-utils/env_files/$ENV"
 
 # Create output directory if it does not exist
-env_output_path="$DEST_DIR"/env_files
+env_output_path="$DEST_DIR/env_files/$ENV"
 mkdir -p "$env_output_path"
 
 # Process all .env files in the directory
@@ -60,10 +63,10 @@ cp ./cronfile \
   ./ping.sh \
   "$DEST_DIR"/app
 
-echo "Copying configs"
-CONFIG_PROJECT_NAME="pysystemtrade_config"
-CONFIG_PROJECT_DIR="../$CONFIG_PROJECT_NAME"
-mkdir -p "$DEST_DIR/config"
-cp -r "$CONFIG_PROJECT_DIR/build/bc-utils/." "$DEST_DIR/config/"
+#echo "Copying configs"
+#CONFIG_PROJECT_NAME="pysystemtrade_config"
+#CONFIG_PROJECT_DIR="../$CONFIG_PROJECT_NAME"
+#mkdir -p "$DEST_DIR/config"
+#cp -r "$CONFIG_PROJECT_DIR/build/bc-utils/." "$DEST_DIR/config/"
 
 echo "DONE!"
